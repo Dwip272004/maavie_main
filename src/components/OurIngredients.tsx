@@ -46,11 +46,11 @@ export default function OurIngredients() {
   const ing = ingredients[active];
 
   return (
-    <section className="bg-[#1A1209] text-white overflow-hidden">
+    <section className="bg-[#231F20] text-white overflow-hidden">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8 pt-16 pb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-6">
         <div>
-          <p className="text-xs tracking-[0.3em] uppercase text-[#C9963A] mb-3">
+          <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#9D6E6B] mb-3">
             What&rsquo;s Inside
           </p>
           <h2 className="text-3xl sm:text-4xl font-light leading-snug">
@@ -78,7 +78,7 @@ export default function OurIngredients() {
             >
               <span className="text-sm tracking-wide">{ing.name}</span>
               {i === active && (
-                <svg className="w-4 h-4 text-[#C9963A] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-[#9D6E6B] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="m9 18 6-6-6-6" />
                 </svg>
               )}
@@ -89,7 +89,7 @@ export default function OurIngredients() {
         {/* Right — content panel */}
         <div className="w-full lg:w-[70%] flex flex-col sm:flex-row min-h-[400px]">
           {/* Image */}
-          <div className="relative w-full sm:w-[45%] aspect-square sm:aspect-auto overflow-hidden bg-[#2C1A0E]">
+          <div className="relative w-full sm:w-[45%] aspect-square sm:aspect-auto overflow-hidden bg-[#3D1F1F]">
             <Image
               key={ing.image}
               src={ing.image}
@@ -102,7 +102,7 @@ export default function OurIngredients() {
 
           {/* Text */}
           <div className="flex-1 flex flex-col justify-center px-10 sm:px-12 lg:px-14 py-12">
-            <p className="text-xs tracking-[0.3em] uppercase text-[#C9963A] mb-4">
+            <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#9D6E6B] mb-4">
               {ing.name}
             </p>
             <h3 className="text-xl sm:text-2xl font-semibold leading-snug text-white mb-5">

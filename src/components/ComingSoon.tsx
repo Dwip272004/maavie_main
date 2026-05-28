@@ -14,7 +14,7 @@ export default function ComingSoon({ label }: { label: string }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#1A1209] text-white flex flex-col overflow-hidden relative">
+    <div className="min-h-screen bg-[#231F20] text-white flex flex-col overflow-hidden relative">
 
       {/* Background image — subtle, blurred */}
       <div className="absolute inset-0 z-0">
@@ -23,17 +23,16 @@ export default function ComingSoon({ label }: { label: string }) {
           alt=""
           fill
           priority
-          className="object-cover object-center opacity-20"
+          className="object-cover object-center opacity-15"
           sizes="100vw"
         />
-        {/* Radial vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#1A1209_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#231F20_70%)]" />
       </div>
 
       {/* Thin top bar */}
       <div className="relative z-10 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 h-14 flex items-center justify-between">
-          <Link href="/" className="text-xl font-light tracking-[0.25em] uppercase text-white hover:text-[#C9963A] transition-colors duration-200">
+          <Link href="/" className="text-[22px] font-bold tracking-[0.18em] uppercase text-white hover:text-[#9D6E6B] transition-colors duration-200">
             maavie
           </Link>
           <Link
@@ -53,9 +52,9 @@ export default function ComingSoon({ label }: { label: string }) {
 
         {/* Decorative element */}
         <div className="flex items-center gap-4 mb-10">
-          <div className="h-px w-16 bg-[#C9963A]/50" />
-          <span className="text-[#C9963A] text-xs tracking-[0.4em] uppercase">Coming Soon</span>
-          <div className="h-px w-16 bg-[#C9963A]/50" />
+          <div className="h-px w-16 bg-[#9D6E6B]/50" />
+          <span className="text-[#9D6E6B] text-xs tracking-[0.4em] uppercase">Coming Soon</span>
+          <div className="h-px w-16 bg-[#9D6E6B]/50" />
         </div>
 
         {/* Section label */}
@@ -64,7 +63,7 @@ export default function ComingSoon({ label }: { label: string }) {
         {/* Headline */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light leading-tight mb-6 max-w-2xl">
           Something{" "}
-          <em className="italic text-[#E8D5A3]">beautiful</em>
+          <em className="italic text-[#F1E1DD]">beautiful</em>
           <br />
           is on its way.
         </h1>
@@ -77,8 +76,8 @@ export default function ComingSoon({ label }: { label: string }) {
 
         {/* Newsletter form */}
         {submitted ? (
-          <div className="flex items-center gap-3 bg-white/10 border border-[#C9963A]/40 px-8 py-5 text-sm tracking-wide text-[#E8D5A3]">
-            <svg className="w-5 h-5 text-[#C9963A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="flex items-center gap-3 bg-white/10 border border-[#9D6E6B]/40 px-8 py-5 text-sm tracking-wide text-[#F1E1DD]">
+            <svg className="w-5 h-5 text-[#9D6E6B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             You&rsquo;re on the list — we&rsquo;ll let you know first.
@@ -94,11 +93,11 @@ export default function ComingSoon({ label }: { label: string }) {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
               required
-              className="flex-1 bg-white/10 border border-white/20 text-white placeholder-white/30 px-5 py-4 text-sm focus:outline-none focus:border-[#C9963A] transition-colors duration-200"
+              className="flex-1 bg-white/10 border border-white/20 text-white placeholder-white/30 px-5 py-4 text-sm focus:outline-none focus:border-[#9D6E6B] transition-colors duration-200"
             />
             <button
               type="submit"
-              className="bg-[#C9963A] text-white px-7 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#b8832a] transition-colors duration-200 whitespace-nowrap"
+              className="bg-[#590515] text-white px-7 py-4 text-[11px] tracking-[0.18em] uppercase hover:bg-[#450110] transition-colors duration-200 whitespace-nowrap"
             >
               Notify Me
             </button>

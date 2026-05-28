@@ -1,160 +1,129 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
+import Image from "next/image";
 
 const testimonials = [
   {
-    name: "Priya S.",
+    headline: "It has literally changed my life",
+    image: "/images/maavie-product-serum.png",
+    text: "I developed melasma during pregnancy and felt like I'd tried everything. Maavie's Radiance Elixir is the first thing that has actually made a visible difference. I feel like myself again.",
+    name: "Priya S",
     date: "March 2025",
-    rating: 5,
-    text: "I've tried countless serums for hair loss but the Hanbang Hair Genesis Serum is on another level. Within 6 weeks I noticed baby hairs and significantly less shedding. Truly life-changing.",
-    product: "Hanbang Hair Genesis Serum",
-    verified: true,
-  },
-  {
-    name: "Mei L.",
-    date: "February 2025",
-    rating: 5,
-    text: "The Golden Body Oil has become a non-negotiable in my routine. My skin literally glows — not greasy, just that lit-from-within kind of radiance. The scent is divine too.",
-    product: "Golden Body Oil",
-    verified: true,
-  },
-  {
-    name: "Sarah K.",
-    date: "April 2025",
-    rating: 5,
-    text: "As someone who's always been skeptical of 'ancient wisdom' claims, I'm converted. The Centella Calm Serum cleared my chronic redness in three weeks. Dermatologist confirmed improvements.",
-    product: "Centella Calm Serum",
-    verified: true,
-  },
-  {
-    name: "Aisha T.",
-    date: "January 2025",
-    rating: 5,
-    text: "Postpartum my skin was completely depleted. Maavie's body oil has been my saviour — it absorbed stretch marks beautifully and gave me my confidence back.",
-    product: "Golden Body Oil",
-    verified: true,
-  },
-  {
-    name: "Emma R.",
-    date: "March 2025",
-    rating: 5,
-    text: "I love that every ingredient is rooted in something real — centuries of Korean herbal tradition. You can feel the quality in every drop. My skin has never looked better.",
     product: "Radiance Face Elixir",
-    verified: true,
   },
   {
-    name: "Yuna C.",
-    date: "May 2025",
-    rating: 5,
-    text: "Finally a brand that actually knows its ingredients. Mugwort, ginger, centella — real hanbang herbs that work. My scalp is healthier than ever, and my hair growth is noticeably accelerated.",
-    product: "Scalp Revival Oil",
-    verified: true,
+    headline: "Far less dull — genuinely glowing",
+    image: "/images/maavie-oil-hand.png",
+    text: "My skin was completely depleted postpartum. The Golden Body Oil absorbed beautifully, no greasiness. Within two weeks my skin looked luminous and I finally felt comfortable in my body again.",
+    name: "Aisha T",
+    date: "January 2025",
+    product: "Golden Body Oil",
   },
   {
-    name: "Nadia B.",
+    headline: "It's really working",
+    image: "/images/maavie-serum-dropper.png",
+    text: "I'm in perimenopause and my skin was going haywire — breakouts, dryness and dullness all at once. The Centella Calm Serum has genuinely calmed everything down. My dermatologist noticed the improvement.",
+    name: "Sarah K",
+    date: "April 2025",
+    product: "Centella Calm Serum",
+  },
+  {
+    headline: "Finally a brand that understands me",
+    image: "/images/maavie-ingredients-botanical.png",
+    text: "Hormonal hair loss was destroying my confidence. After 8 weeks with the Hair Genesis Serum I have baby hairs growing back and so much less shedding. I recommend it to every woman going through the same.",
+    name: "Mei L",
     date: "February 2025",
-    rating: 5,
-    text: "I've gifted the bundle to three friends already. Everyone who tries Maavie becomes obsessed. The formulation is thoughtful, the results are real, and the packaging is gorgeous.",
-    product: "Radiance Bundle",
-    verified: true,
+    product: "Hanbang Hair Genesis Serum",
+  },
+  {
+    headline: "Stretch marks visibly fading",
+    image: "/images/maavie-woman-back.png",
+    text: "I used this throughout my second pregnancy and the difference compared to my first is remarkable. My stretch marks are barely visible and my skin stayed supple throughout. This is now my forever product.",
+    name: "Emma R",
+    date: "March 2025",
+    product: "Golden Body Oil",
+  },
+  {
+    headline: "My scalp has never felt better",
+    image: "/images/maavie-ingredients-pine.png",
+    text: "Mugwort, ginger, centella — real ingredients that do what they say. My scalp is healthier, itchiness is gone and my hair growth has noticeably accelerated. I'll never use another product.",
+    name: "Yuna C",
+    date: "May 2025",
+    product: "Scalp Revival Oil",
   },
 ];
 
-function StarRating({ count }: { count: number }) {
-  return (
-    <div className="flex gap-0.5">
-      {Array.from({ length: count }).map((_, i) => (
-        <svg key={i} className="w-4 h-4 text-[#C9963A]" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ))}
-    </div>
-  );
-}
-
 export default function Testimonials() {
-  const [current, setCurrent] = useState(0);
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  const prev = () => setCurrent((c) => Math.max(0, c - 1));
-  const next = () => setCurrent((c) => Math.min(testimonials.length - 1, c + 1));
+  const [start, setStart] = useState(0);
+  const visible = testimonials.slice(start, start + 3);
+  const canPrev = start > 0;
+  const canNext = start + 3 < testimonials.length;
 
   return (
-    <section className="py-20 bg-[#F7F0E4]">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
-          <div>
-            <p className="text-xs tracking-[0.3em] uppercase text-[#C9963A] mb-3">
-              Real Results
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-light text-[#1A1209]">
-              Join 50,000+ who found their glow
-            </h2>
-          </div>
-          <div className="flex gap-3">
+    <section className="py-[71px_0_81px] bg-white overflow-hidden" style={{ padding: "71px 0 81px" }}>
+      <div className="max-w-[1275px] mx-auto px-6 sm:px-10">
+        {/* Title */}
+        <div className="flex items-start justify-between mb-12 gap-6">
+          <h2 className="text-4xl font-light text-[#231F20] max-w-2xl leading-[1.2]">
+            Join 50,000+ women choosing<br className="hidden sm:block" /> science-backed skincare.
+          </h2>
+          <div className="flex gap-3 shrink-0 mt-2">
             <button
-              onClick={prev}
-              disabled={current === 0}
-              className="w-10 h-10 border border-[#1A1209] flex items-center justify-center disabled:opacity-30 hover:bg-[#1A1209] hover:text-white transition-colors duration-200"
+              onClick={() => setStart(s => Math.max(0, s - 1))}
+              disabled={!canPrev}
+              className="w-9 h-9 flex items-center justify-center text-[#231F20] disabled:opacity-30 hover:text-[#590515] transition-colors"
               aria-label="Previous"
             >
-              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path d="m15 18-6-6 6-6" />
               </svg>
             </button>
             <button
-              onClick={next}
-              disabled={current === testimonials.length - 1}
-              className="w-10 h-10 border border-[#1A1209] flex items-center justify-center disabled:opacity-30 hover:bg-[#1A1209] hover:text-white transition-colors duration-200"
+              onClick={() => setStart(s => Math.min(testimonials.length - 3, s + 1))}
+              disabled={!canNext}
+              className="w-9 h-9 flex items-center justify-center text-[#231F20] disabled:opacity-30 hover:text-[#590515] transition-colors"
               aria-label="Next"
             >
-              <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                 <path d="m9 18 6-6-6-6" />
               </svg>
             </button>
           </div>
         </div>
 
-        {/* Carousel */}
-        <div
-          ref={scrollRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {testimonials.slice(current, current + 3).map((t) => (
-            <div key={t.name + t.date} className="bg-[#FDFAF5] p-8 flex flex-col gap-4">
-              <StarRating count={t.rating} />
-              <p className="text-[#1A1209] leading-relaxed text-sm flex-1">
-                &ldquo;{t.text}&rdquo;
-              </p>
-              <div className="flex items-center justify-between pt-4 border-t border-[#E8D5A3]/60">
-                <div>
-                  <p className="text-sm font-medium text-[#1A1209]">{t.name}</p>
-                  <p className="text-xs text-[#7A6A57]">{t.date}</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-xs text-[#C9963A]">{t.product}</p>
-                  {t.verified && (
-                    <p className="text-xs text-[#7A6A57]">✓ Verified purchase</p>
-                  )}
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {visible.map((t) => (
+            <div key={t.name + t.date} className="flex min-h-[320px]">
+              {/* Left: image */}
+              <div className="w-1/2 relative overflow-hidden rounded-tl-[10px] rounded-bl-[10px]">
+                <Image
+                  src={t.image}
+                  alt={t.headline}
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 16vw"
+                />
+              </div>
+              {/* Right: content */}
+              <div className="w-1/2 bg-[#F7F1EC] rounded-tr-[10px] rounded-br-[10px] flex items-center px-5 py-6">
+                <div className="text-center w-full">
+                  <h3 className="text-base font-semibold text-[#231F20] mb-5 leading-snug">
+                    {t.headline}
+                  </h3>
+                  <div className="text-[#590515] mb-4 text-[13px] tracking-wider">
+                    ★★★★★
+                  </div>
+                  <p className="text-sm text-[#231F20] leading-relaxed mb-4">
+                    &ldquo;{t.text}&rdquo;
+                  </p>
+                  <p className="text-[10px] text-[#590515] tracking-wide">
+                    {t.name}. {t.date}. ✓ Verified
+                  </p>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* Dots */}
-        <div className="flex justify-center gap-2 mt-8">
-          {testimonials.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                i === current ? "bg-[#C9963A] w-6" : "bg-[#E8D5A3]"
-              }`}
-              aria-label={`Go to ${i + 1}`}
-            />
           ))}
         </div>
       </div>

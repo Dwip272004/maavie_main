@@ -7,7 +7,6 @@ const footerColumns = [
       { label: "About Us", href: "/about" },
       { label: "Our Story", href: "/about#story" },
       { label: "The Science", href: "/science" },
-      { label: "Hanbang Guide", href: "/guides/hanbang-starter" },
       { label: "Journal", href: "/journal" },
       { label: "Press", href: "/press" },
       { label: "Contact", href: "/contact" },
@@ -44,7 +43,7 @@ const footerColumns = [
 const socialLinks = [
   {
     name: "Instagram",
-    href: "https://instagram.com/maavieskin",
+    href: "https://instagram.com/maavie.in",
     icon: (
       <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -84,20 +83,20 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A1209] text-white/70">
+    <footer className="bg-[#231F20] text-white/70">
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8 pt-16 pb-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link href="/" className="block mb-4">
-              <span className="text-2xl font-light tracking-[0.25em] text-white uppercase">
+              <span className="text-[22px] font-bold tracking-[0.18em] text-white uppercase">
                 maavie
               </span>
             </Link>
             <p className="text-sm leading-relaxed mb-6 max-w-xs">
-              Ancient Korean hanbang wisdom, formulated for modern skin. Every product is a bridge
-              between centuries of herbal knowledge and today&rsquo;s science.
+              Skincare made for every stage of womanhood — from conception to menopause.
+              Rooted in nature, reviewed by science.
             </p>
             {/* Social */}
             <div className="flex gap-4">
@@ -108,7 +107,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.name}
-                  className="text-white/50 hover:text-[#C9963A] transition-colors duration-200"
+                  className="text-white/50 hover:text-[#9D6E6B] transition-colors duration-200"
                 >
                   {s.icon}
                 </a>
@@ -119,7 +118,7 @@ export default function Footer() {
           {/* Link columns */}
           {footerColumns.map((col) => (
             <div key={col.heading}>
-              <h3 className="text-white text-xs tracking-[0.2em] uppercase mb-5">
+              <h3 className="text-white text-[11px] tracking-[0.2em] uppercase mb-5">
                 {col.heading}
               </h3>
               <ul className="space-y-2.5">
@@ -127,7 +126,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm hover:text-[#C9963A] transition-colors duration-200"
+                      className="text-sm hover:text-[#9D6E6B] transition-colors duration-200"
                     >
                       {link.label}
                     </Link>
@@ -144,16 +143,15 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <p>© {new Date().getFullYear()} maavie. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-[#C9963A] transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-[#C9963A] transition-colors">Terms</Link>
-            <Link href="/cookies" className="hover:text-[#C9963A] transition-colors">Cookies</Link>
+            <Link href="/privacy" className="hover:text-[#9D6E6B] transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-[#9D6E6B] transition-colors">Terms</Link>
+            <Link href="/cookies" className="hover:text-[#9D6E6B] transition-colors">Cookies</Link>
           </div>
-          {/* Payment icons placeholder */}
           <div className="flex gap-2 text-white/40 text-xs tracking-wider">
             <span>VISA</span>
             <span>MASTERCARD</span>
             <span>AMEX</span>
-            <span>PAYPAL</span>
+            <span>UPI</span>
           </div>
         </div>
       </div>

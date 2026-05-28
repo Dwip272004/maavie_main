@@ -3,53 +3,92 @@ import Link from "next/link";
 
 export default function BrandStory() {
   return (
-    <section className="bg-[#FDFAF5] overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
-        {/* Image */}
-        <div className="relative min-h-[400px] lg:min-h-0 order-2 lg:order-1">
-          <Image
-            src="/images/maavie-woman-back.png"
-            alt="Maavie philosophy"
-            fill
-            className="object-cover object-center"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#FDFAF5]/20 lg:to-[#FDFAF5]/10" />
+    <section className="bg-[#F8F3EE] overflow-visible" style={{ padding: "101px 0 48px" }}>
+      <div className="flex flex-wrap max-w-[1500px] mx-auto">
+
+        {/* Left — tall portrait image, bleeds upward */}
+        <div className="w-full lg:w-[22%] hidden lg:block">
+          <div className="relative" style={{ paddingBottom: "433px", marginTop: "-101px", maxWidth: "333px" }}>
+            <Image
+              src="/images/maavie-woman-back.png"
+              alt="Maavie — every stage"
+              fill
+              className="object-cover object-center"
+              sizes="22vw"
+            />
+          </div>
         </div>
 
-        {/* Content */}
-        <div className="flex flex-col justify-center px-10 lg:px-16 py-20 order-1 lg:order-2 bg-[#FDFAF5]">
-          <p className="text-xs tracking-[0.3em] uppercase text-[#C9963A] mb-5">
-            Our Philosophy
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-light leading-snug mb-6 text-[#1A1209]">
-            Our Philosophy
-          </h2>
-          <p className="text-[#7A6A57] leading-relaxed mb-5 text-base">
-            A woman&rsquo;s body changes constantly through life. Puberty. Pregnancy. Postpartum.
-            Perimenopause. Menopause.
-          </p>
-          <p className="text-[#7A6A57] leading-relaxed mb-5 text-base">
-            Yet most skincare was never designed with these changes in mind.
-          </p>
-          <p className="text-[#7A6A57] leading-relaxed mb-5 text-base">
-            Maavie was created to bring together what women have always needed: safe, effective
-            skincare that understands hormonal change with honesty, softness and care.
-          </p>
-          <p className="text-[#7A6A57] leading-relaxed mb-10 text-base">
-            We combine time-honoured natural ingredients with modern scientific research to create
-            formulas that support your skin through every stage of womanhood.
-          </p>
-          <Link
-            href="/about"
-            className="inline-flex items-center gap-3 text-sm tracking-widest uppercase text-[#1A1209] border-b border-[#1A1209] pb-0.5 hover:text-[#C9963A] hover:border-[#C9963A] transition-colors duration-200 group w-fit"
-          >
-            Our Full Story
-            <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+        {/* Center — content */}
+        <div className="w-full lg:w-[43%]" style={{ padding: "72px 0 80px 74px" }}>
+          <div style={{ maxWidth: "500px" }}>
+            <h2
+              className="text-[#231F20] font-light leading-[1] mb-12"
+              style={{ fontSize: "clamp(1.8rem, 2.667vw, 2.5rem)", lineHeight: "1" }}
+            >
+              Embodying Change
+            </h2>
+            <div className="mb-12">
+              <p className="text-[#231F20] text-[18px] leading-[24px]">
+                Your body deserves to be honoured at every stage of life.
+                <br /><br />
+                We exist to champion your changing body, naturally, and arm you with the
+                knowledge, products, and community you need to thrive at every stage of womanhood.
+                <br /><br />
+                From hormonal pigmentation to hair thinning and skin sensitivity, our formulas
+                support your body&rsquo;s every evolution.
+              </p>
+            </div>
+            <Link
+              href="/about"
+              className="inline-block bg-[#590515] text-white px-9 py-4 text-[11px] font-semibold tracking-[0.18em] uppercase hover:bg-[#450110] transition-colors duration-200"
+            >
+              About Us
+            </Link>
+          </div>
         </div>
+
+        {/* Right — two stacked images with negative margin overlaps */}
+        <div className="w-full lg:w-[35%] hidden lg:block">
+          {/* Top image — bleeds upward */}
+          <div
+            className="relative w-full"
+            style={{ paddingBottom: "368px", maxWidth: "377px", marginTop: "-46px" }}
+          >
+            <Image
+              src="/images/maavie-oil-hand.png"
+              alt="Maavie ingredients"
+              fill
+              className="object-cover object-center"
+              sizes="25vw"
+            />
+          </div>
+          {/* Bottom image — overlaps the one above, bleeds downward */}
+          <div
+            className="relative w-full ml-auto"
+            style={{ paddingBottom: "386px", maxWidth: "386px", margin: "-82px 0 -48px auto" }}
+          >
+            <Image
+              src="/images/maavie-ingredients-botanical.png"
+              alt="Maavie botanicals"
+              fill
+              className="object-cover object-center"
+              sizes="25vw"
+            />
+          </div>
+        </div>
+
+        {/* Mobile: single full-width image */}
+        <div className="w-full lg:hidden relative aspect-[4/3] overflow-hidden">
+          <Image
+            src="/images/maavie-ingredients-botanical.png"
+            alt="Maavie botanicals"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+
       </div>
     </section>
   );

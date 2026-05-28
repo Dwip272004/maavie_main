@@ -1,82 +1,62 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FDFAF5;
-  --foreground: #1A1209;
-  --gold: #C9963A;
-  --gold-light: #E8D5A3;
-  --gold-pale: #F5EDE0;
-  --cream: #F7F0E4;
-  --dark-brown: #2C1A0E;
-  --muted: #7A6A57;
+  --bg:           #FFFFFF;
+  --bg-soft:      #F8F3EE;
+  --bg-pink:      #F1E1DD;
+  --bg-pink-deep: #EAD1CB;
+  --text:         #231F20;
+  --text-mid:     #4F4242;
+  --text-muted:   #7A6869;
+  --accent:       #9D6E6B;
+  --accent-dark:  #590515;
+  --accent-light: #D9C0BA;
+  --border:       #E8DEDA;
+  --white:        #FFFFFF;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-gold: var(--gold);
-  --color-gold-light: var(--gold-light);
-  --color-gold-pale: var(--gold-pale);
-  --color-cream: var(--cream);
-  --color-dark-brown: var(--dark-brown);
-  --color-muted: var(--muted);
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-cormorant);
+  --color-bg:           var(--bg);
+  --color-bg-soft:      var(--bg-soft);
+  --color-bg-pink:      var(--bg-pink);
+  --color-text:         var(--text);
+  --color-text-mid:     var(--text-mid);
+  --color-text-muted:   var(--text-muted);
+  --color-accent:       var(--accent);
+  --color-accent-dark:  var(--accent-dark);
+  --color-accent-light: var(--accent-light);
+  --color-border:       var(--border);
+  --font-sans: var(--font-dm-sans);
 }
 
+html { scroll-behavior: smooth; }
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+/* Scrollbar hide */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Hide scrollbar for testimonial carousel */
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+/* Marquee animation */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+.animate-marquee { animation: marquee 30s linear infinite; }
 
-/* Button hover underline animation */
-.nav-link {
-  position: relative;
-}
+/* Nav underline */
+.nav-link { position: relative; }
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--foreground);
-  transition: width 0.25s ease;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: var(--text);
+  transition: width 0.2s ease;
 }
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* Announcement bar marquee */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.animate-marquee {
-  animation: marquee 25s linear infinite;
-}
-
-/* Fade-in on scroll */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease forwards;
-}
+.nav-link:hover::after { width: 100%; }

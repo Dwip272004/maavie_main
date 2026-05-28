@@ -48,23 +48,21 @@ export default function ShopByNeed() {
   const active = tabs[activeIndex];
 
   return (
-    <section className="bg-[#FDFAF5]">
+    <section className="bg-white">
       {/* Heading row + tabs */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8 pt-14 pb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <h2 className="text-2xl sm:text-3xl font-light text-[#1A1209]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 pt-12 pb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <h2 className="text-2xl sm:text-3xl font-light text-[#231F20]">
           What does <em className="italic">your</em> body need?
         </h2>
-
-        {/* Tab pills — scroll horizontally on mobile */}
-        <nav className="flex items-center gap-5 sm:gap-8 overflow-x-auto scrollbar-hide pb-1">
+        <nav className="flex items-center gap-6 overflow-x-auto scrollbar-hide pb-1">
           {tabs.map((tab, i) => (
             <button
               key={tab.label}
               onClick={() => setActiveIndex(i)}
-              className={`text-xs tracking-[0.15em] uppercase whitespace-nowrap transition-colors duration-200 pb-0.5 border-b shrink-0 ${
+              className={`text-[11px] font-medium tracking-[0.15em] uppercase whitespace-nowrap pb-0.5 border-b transition-colors duration-200 shrink-0 ${
                 i === activeIndex
-                  ? "text-[#1A1209] border-[#1A1209] font-medium"
-                  : "text-[#B0A090] border-transparent hover:text-[#7A6A57]"
+                  ? "text-[#231F20] border-[#231F20]"
+                  : "text-[#B0A090] border-transparent hover:text-[#4F4242]"
               }`}
             >
               {tab.label}
@@ -73,36 +71,33 @@ export default function ShopByNeed() {
         </nav>
       </div>
 
-      {/* Content panel — image left (~42%), text right */}
+      {/* Panel */}
       <div className="flex flex-col lg:flex-row min-h-[480px]">
-        {/* Portrait image */}
-        <div className="relative w-full lg:w-[42%] aspect-[4/5] lg:aspect-auto overflow-hidden bg-[#E8D5A3]">
+        <div className="relative w-full lg:w-[42%] aspect-[4/5] lg:aspect-auto overflow-hidden bg-[#EAD1CB]">
           <Image
             key={active.image}
             src={active.image}
             alt={active.label}
             fill
             priority
-            className="object-cover object-center transition-opacity duration-500"
+            className="object-cover object-center"
             sizes="(max-width: 1024px) 100vw, 42vw"
           />
         </div>
-
-        {/* Text panel */}
-        <div className="w-full lg:w-[58%] bg-[#F5EDE0] flex items-center px-10 sm:px-14 lg:px-20 py-16">
+        <div className="w-full lg:w-[58%] bg-[#F8F3EE] flex items-center px-10 sm:px-14 lg:px-20 py-16">
           <div className="max-w-lg">
-            <p className="text-xs tracking-[0.25em] uppercase text-[#C9963A] mb-4">
+            <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#9D6E6B] mb-4">
               {active.label}
             </p>
-            <h3 className="text-xl sm:text-2xl font-semibold text-[#1A1209] leading-snug mb-5">
+            <h3 className="text-xl sm:text-2xl font-semibold text-[#231F20] leading-snug mb-5">
               {active.headline}
             </h3>
-            <p className="text-[#7A6A57] leading-relaxed mb-10 text-base">
+            <p className="text-[#4F4242] leading-relaxed mb-10 text-base">
               {active.description}
             </p>
             <Link
               href={active.href}
-              className="inline-block bg-[#1A1209] text-white px-10 py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2C1A0E] transition-colors duration-200"
+              className="inline-block bg-[#590515] text-white px-9 py-4 text-[11px] font-semibold tracking-[0.18em] uppercase hover:bg-[#450110] transition-colors duration-200"
             >
               {active.cta}
             </Link>

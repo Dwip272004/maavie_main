@@ -5,8 +5,8 @@ const bundles = [
   {
     name: "The Radiance Ritual",
     description: "Hair Genesis Serum + Golden Body Oil + Radiance Face Elixir",
-    price: "$158",
-    savings: "Save $26",
+    price: "₹7,999",
+    savings: "Save ₹1,299",
     image: "/images/maavie-product-serum.png",
     href: "/bundles/radiance-ritual",
     popular: true,
@@ -14,8 +14,8 @@ const bundles = [
   {
     name: "The Scalp & Hair Kit",
     description: "Scalp Revival Oil + Hair Genesis Serum + Mugwort Mist",
-    price: "$128",
-    savings: "Save $18",
+    price: "₹6,499",
+    savings: "Save ₹999",
     image: "/images/maavie-ingredients-pine.png",
     href: "/bundles/scalp-hair",
     popular: false,
@@ -23,8 +23,8 @@ const bundles = [
   {
     name: "The Glow Starter",
     description: "Golden Body Oil + Centella Calm Serum",
-    price: "$96",
-    savings: "Save $12",
+    price: "₹4,999",
+    savings: "Save ₹599",
     image: "/images/maavie-serum-dropper.png",
     href: "/bundles/glow-starter",
     popular: false,
@@ -33,16 +33,16 @@ const bundles = [
 
 export default function BundlePromo() {
   return (
-    <section className="py-20 bg-[#FDFAF5]">
+    <section className="py-20 bg-[#F8F3EE]">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-8">
         <div className="text-center mb-14">
-          <p className="text-xs tracking-[0.3em] uppercase text-[#C9963A] mb-3">
+          <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#9D6E6B] mb-3">
             Better Together
           </p>
-          <h2 className="text-3xl sm:text-4xl font-light text-[#1A1209] mb-4">
+          <h2 className="text-3xl sm:text-4xl font-light text-[#231F20] mb-4">
             Shop bundles & save
           </h2>
-          <p className="text-[#7A6A57] max-w-xl mx-auto text-base">
+          <p className="text-[#4F4242] max-w-xl mx-auto text-base">
             Rituals work better as systems. Our bundles are thoughtfully curated so your formulas
             work in synergy — deeper results, better value.
           </p>
@@ -53,17 +53,17 @@ export default function BundlePromo() {
             <div
               key={b.name}
               className={`group relative border ${
-                b.popular ? "border-[#C9963A]" : "border-[#E8D5A3]"
+                b.popular ? "border-[#9D6E6B]" : "border-[#E8DEDA]"
               } overflow-hidden`}
             >
               {b.popular && (
-                <div className="absolute top-0 left-0 right-0 bg-[#C9963A] text-white text-[10px] tracking-widest uppercase text-center py-1.5 z-10">
+                <div className="absolute top-0 left-0 right-0 bg-[#9D6E6B] text-white text-[10px] tracking-widest uppercase text-center py-1.5 z-10">
                   Most Popular
                 </div>
               )}
 
               {/* Image */}
-              <div className={`relative aspect-square overflow-hidden bg-[#F5EDE0] ${b.popular ? "mt-8" : ""}`}>
+              <div className={`relative aspect-square overflow-hidden bg-[#EAD1CB] ${b.popular ? "mt-8" : ""}`}>
                 <Image
                   src={b.image}
                   alt={b.name}
@@ -74,16 +74,16 @@ export default function BundlePromo() {
               </div>
 
               {/* Info */}
-              <div className="p-6">
-                <h3 className="text-base font-medium text-[#1A1209] mb-1">{b.name}</h3>
-                <p className="text-xs text-[#7A6A57] mb-4 leading-relaxed">{b.description}</p>
+              <div className="p-6 bg-white">
+                <h3 className="text-base font-medium text-[#231F20] mb-1">{b.name}</h3>
+                <p className="text-xs text-[#4F4242] mb-4 leading-relaxed">{b.description}</p>
                 <div className="flex items-center justify-between mb-5">
-                  <span className="text-lg font-medium text-[#1A1209]">{b.price}</span>
-                  <span className="text-xs text-[#C9963A] bg-[#C9963A]/10 px-2.5 py-1">{b.savings}</span>
+                  <span className="text-lg font-medium text-[#231F20]">{b.price}</span>
+                  <span className="text-xs text-[#9D6E6B] bg-[#9D6E6B]/10 px-2.5 py-1">{b.savings}</span>
                 </div>
                 <Link
                   href={b.href}
-                  className="block text-center bg-[#1A1209] text-white text-xs tracking-widest uppercase py-3.5 hover:bg-[#C9963A] transition-colors duration-300"
+                  className="block text-center bg-[#590515] text-white text-[11px] tracking-[0.18em] uppercase py-3.5 hover:bg-[#450110] transition-colors duration-300"
                 >
                   Shop Bundle
                 </Link>
@@ -95,7 +95,7 @@ export default function BundlePromo() {
         <div className="text-center mt-10">
           <Link
             href="/bundles"
-            className="text-sm text-[#1A1209] border-b border-[#1A1209] pb-0.5 hover:text-[#C9963A] hover:border-[#C9963A] transition-colors duration-200"
+            className="text-[11px] font-semibold tracking-[0.18em] uppercase text-[#231F20] border-b border-[#231F20] pb-0.5 hover:text-[#9D6E6B] hover:border-[#9D6E6B] transition-colors duration-200"
           >
             View All Bundles
           </Link>

@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
   display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "maavie — Ancient Roots. Radiant Skin.",
+  title: "maavie — Made for every stage of womanhood.",
   description:
-    "Maavie brings the ancient wisdom of Korean Hanbang herbal medicine into modern skincare. Formulated with potent botanicals for radiant, healthy skin.",
-  keywords: ["hanbang", "Korean skincare", "natural skincare", "body oil", "serum", "maavie"],
+    "Maavie brings safe, effective skincare to every stage of a woman's life — from pregnancy to menopause. Formulated with clinically proven natural ingredients.",
+  keywords: ["pregnancy skincare", "menopause skincare", "hormonal skincare", "natural skincare", "maavie"],
   openGraph: {
-    title: "maavie — Ancient Roots. Radiant Skin.",
+    title: "maavie — Made for every stage of womanhood.",
     description:
-      "Korean Hanbang skincare rooted in centuries of herbal wisdom. Discover our potent botanical formulas.",
+      "Safe, effective skincare for every hormonal stage. Nature. Science. Truth.",
     siteName: "maavie",
   },
 };
@@ -27,8 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[#FDFAF5] text-[#1A1209]">
+    <html lang="en" className={`${dmSans.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-white text-[#231F20]">
         {children}
       </body>
     </html>
