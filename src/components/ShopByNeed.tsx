@@ -6,15 +6,6 @@ import Link from "next/link";
 
 const tabs = [
   {
-    label: "Trying to Conceive",
-    image: "/images/maavie-ingredients-botanical.png",
-    headline: "Your body is already preparing for change — even before the test turns positive.",
-    description:
-      "Hormones begin to shift quietly, and skin can suddenly feel more sensitive, reactive or unfamiliar. This is where gentle, safe skincare matters most. Care that supports your body before motherhood even begins.",
-    cta: "Shop TTC Edit",
-    href: "/shop/ttc",
-  },
-  {
     label: "Pregnancy & Postpartum",
     image: "/images/pregnency and post partaum.png",
     headline: "Your body is doing something extraordinary. And your skin feels every part of it.",

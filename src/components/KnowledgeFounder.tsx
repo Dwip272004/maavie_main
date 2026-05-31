@@ -9,7 +9,7 @@ export default function KnowledgeFounder() {
         {/* Left — image */}
         <div className="relative w-full sm:w-1/2 aspect-[4/3] sm:aspect-auto overflow-hidden">
           <Image
-            src="/images/maavie-ingredients-flat.png"
+            src="/images/knowledge.jpeg"
             alt="Knowledge is yours. Free."
             fill
             className="object-cover object-center"
@@ -48,7 +48,7 @@ export default function KnowledgeFounder() {
         {/* Right (visually) — image / video thumbnail */}
         <div className="relative w-full sm:w-1/2 aspect-[4/3] sm:aspect-auto overflow-hidden">
           <Image
-            src="/images/maavie-woman-oil.png"
+            src="/images/thispersonal.jpeg"
             alt="This is personal — Maavie founder"
             fill
             className="object-cover object-center"

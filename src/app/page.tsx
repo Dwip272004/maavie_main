@@ -3,8 +3,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import PressLogos from "@/components/PressLogos";
 import ShopByNeed from "@/components/ShopByNeed";
-import Testimonials from "@/components/Testimonials";
-import BestSellers from "@/components/BestSellers";
+import IngredientsMarquee from "@/components/IngredientsMarquee";
 import BrandStory from "@/components/BrandStory";
 import ExpertCredentials from "@/components/ExpertCredentials";
 import KnowledgeFounder from "@/components/KnowledgeFounder";
@@ -20,8 +19,7 @@ export default function Home() {
         <Hero />
         <PressLogos />
         <ShopByNeed />
-        <Testimonials />
-        <BestSellers />
+        <IngredientsMarquee />
         <BrandStory />
         <ExpertCredentials />
         <KnowledgeFounder />

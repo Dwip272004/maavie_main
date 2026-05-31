@@ -10,7 +10,7 @@ export default function BrandStory() {
         <div className="w-full lg:w-[22%] hidden lg:block">
           <div className="relative" style={{ paddingBottom: "433px", marginTop: "-101px", maxWidth: "333px" }}>
             <Image
-              src="/images/maavie-woman-back.png"
+              src="/images/graphi.jpeg"
               alt="Maavie — every stage"
               fill
               className="object-cover object-center"
@@ -56,7 +56,7 @@ export default function BrandStory() {
             style={{ paddingBottom: "368px", maxWidth: "377px", marginTop: "-46px" }}
           >
             <Image
-              src="/images/maavie-oil-hand.png"
+              src="/images/iimg3.jpeg"
               alt="Maavie ingredients"
               fill
               className="object-cover object-center"
