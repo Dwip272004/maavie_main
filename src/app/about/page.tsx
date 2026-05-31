@@ -48,7 +48,7 @@ const founders = [
     id: "nupur",
     name: "Nupur Kaudan",
     role: "Founder",
-    image: "/images/maavie-woman-back.png",
+    image: "/images/nupur.png",
     tagline: "She asked the question nobody was asking.",
     quote:
       "Indian women deserve skincare that was actually made for them — not reformulated for us as an afterthought.",
@@ -64,7 +64,7 @@ const founders = [
     id: "shivani",
     name: "Shivani Magan",
     role: "Co-Founder",
-    image: "/images/maavie-woman-oil.png",
+    image: "/images/shivani.png",
     tagline: "She lived the problem Maavie was born to solve.",
     quote:
       "I kept thinking: why are mothers expected to just deal with this? That question became Maavie.",
@@ -220,7 +220,7 @@ export default function AboutPage() {
               style={{ opacity: storyReveal.inView ? 1 : 0, transform: storyReveal.inView ? "none" : "translateX(-40px)" }}
             >
               <Image
-                src="/images/maavie-ingredients-botanical.png"
+                src="/images/momportrait.png"
                 alt="Maavie ingredients"
                 fill
                 className="object-cover object-center"

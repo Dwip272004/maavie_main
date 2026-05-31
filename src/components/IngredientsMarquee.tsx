@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -5,37 +7,37 @@ const ingredients = [
   {
     name: "Mulberry Root",
     tagline: "Fades hormonal pigmentation",
-    image: "/images/maavie-woman-back.png",
+    image: "/images/Mulberry roots.png",
     bg: null,
   },
   {
     name: "Bakuchiol",
     tagline: "Safe retinol, pregnancy-friendly",
-    image: null,
+    image: "/images/BAKUCHIOL c2.png",
     bg: "#590515",
   },
   {
     name: "Licorice Root",
     tagline: "Calms & brightens reactive skin",
-    image: "/images/maavie-ingredients-botanical.png",
+    image: "/images/LICORICE ROOT.png",
     bg: null,
   },
   {
     name: "Centella Asiatica",
     tagline: "Strengthens the skin barrier",
-    image: null,
+    image: "/images/CENTELLA ASIATICA.png",
     bg: "#EAD1CB",
   },
   {
     name: "Fermented Rice Water",
     tagline: "Brightens & softens depleted skin",
-    image: "/images/maavie-korean-wave.png",
+    image: "/images/FERMENTED RICE WATER.png",
     bg: null,
   },
   {
     name: "Pine Bark Extract",
     tagline: "Antioxidant support for elasticity",
-    image: null,
+    image: "/images/pine bark.png",
     bg: "#4F4242",
   },
   {
@@ -47,44 +49,14 @@ const ingredients = [
   {
     name: "Squalane",
     tagline: "Deep moisture without heaviness",
-    image: null,
+    image: "/images/squalane.png",
     bg: "#9D6E6B",
-  },
-  {
-    name: "Niacinamide",
-    tagline: "Evens skin tone & minimises pores",
-    image: "/images/maavie-serum-dropper.png",
-    bg: null,
-  },
-  {
-    name: "Hyaluronic Acid",
-    tagline: "Multi-level hydration",
-    image: null,
-    bg: "#590515",
   },
   {
     name: "Rosehip Seed Oil",
     tagline: "Rich in vitamins A & C",
-    image: "/images/maavie-woman-oil.png",
+    image: "/images/Rosechip.png",
     bg: null,
-  },
-  {
-    name: "Mugwort",
-    tagline: "Soothes sensitive & hormonal skin",
-    image: null,
-    bg: "#F1E1DD",
-  },
-  {
-    name: "Vitamin C",
-    tagline: "Brightens & fights pigmentation",
-    image: "/images/maavie-ingredients-flat.png",
-    bg: null,
-  },
-  {
-    name: "Peptides",
-    tagline: "Supports collagen in maturing skin",
-    image: null,
-    bg: "#231F20",
   },
 ];
 
@@ -99,7 +71,7 @@ function Card({ ing }: { ing: (typeof ingredients)[0] }) {
   return (
     <div
       className="shrink-0 relative overflow-hidden group"
-      style={{ width: "220px", height: "310px" }}
+      style={{ width: "420px", height: "280px" }}
     >
       {ing.image ? (
         <>
@@ -108,9 +80,9 @@ function Card({ ing }: { ing: (typeof ingredients)[0] }) {
             alt={ing.name}
             fill
             className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-            sizes="220px"
+            sizes="420px"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1a0a0a]/80 via-[#231F20]/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#1a0a0a]/50 via-[#231F20]/10 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-5">
             <p className="text-[9px] font-bold tracking-[0.28em] uppercase text-[#9D6E6B] mb-1.5">
               {ing.name}
@@ -161,6 +133,19 @@ function Card({ ing }: { ing: (typeof ingredients)[0] }) {
 
 export default function IngredientsMarquee() {
   const doubled = [...ingredients, ...ingredients];
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setInView(true); obs.disconnect(); } },
+      { threshold: 0.15 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <section className="bg-[#F8F3EE] overflow-hidden">
@@ -184,7 +169,15 @@ export default function IngredientsMarquee() {
       </div>
 
       {/* ── Scrolling carousel ── */}
-      <div className="overflow-hidden w-full" style={{ cursor: "default" }}>
+      <div
+        ref={carouselRef}
+        className="overflow-hidden w-full transition-all duration-1000 ease-out"
+        style={{
+          cursor: "default",
+          opacity: inView ? 1 : 0,
+          transform: inView ? "scale(1)" : "scale(0.96)",
+        }}
+      >
         <div
           className="animate-marquee"
           style={{ display: "flex", gap: "2px", width: "max-content" }}

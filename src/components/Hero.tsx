@@ -9,11 +9,11 @@ export default function Hero() {
     >
       {/* Full-bleed background image */}
       <Image
-        src="/images/maavie-hero-banner.png"
+        src="/images/banner.png"
         alt="Maavie — Bodies evolve. Your skincare should, too."
         fill
         priority
-        className="object-cover object-center"
+        className="object-cover object-right"
         sizes="100vw"
       />
 

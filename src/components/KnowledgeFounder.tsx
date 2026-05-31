@@ -9,7 +9,7 @@ export default function KnowledgeFounder() {
         {/* Right (visually) — image / video thumbnail */}
         <div className="relative w-full sm:w-1/2 aspect-[4/3] sm:aspect-auto overflow-hidden">
           <Image
-            src="/images/thispersonal.jpeg"
+            src="/images/mom.png"
             alt="This is personal — Maavie founder"
             fill
             className="object-cover object-center"
@@ -33,7 +33,7 @@ export default function KnowledgeFounder() {
               We create products with purpose, champion women&rsquo;s health, and build a community
               of women who refuse to just deal with it.&rdquo;
               <br /><br />
-              <span className="not-italic font-medium text-[#231F20]">Shivani Magan, Maavie Founder</span>
+              <span className="not-italic font-medium text-[#231F20]">Shivani , Maavie Founder</span>
             </p>
             <Link
               href="/waitlist"
