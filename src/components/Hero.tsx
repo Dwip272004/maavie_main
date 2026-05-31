@@ -49,10 +49,10 @@ export default function Hero() {
             Made for every stage of womanhood.
           </p>
           <Link
-            href="/products"
+            href="/waitlist"
             className="inline-block bg-white text-[#231F20] px-9 py-4 text-[11px] font-semibold tracking-[0.18em] uppercase hover:bg-[#F1E1DD] transition-colors duration-200"
           >
-            Shop Now
+            Join the Waitlist
           </Link>
         </div>
       </div>

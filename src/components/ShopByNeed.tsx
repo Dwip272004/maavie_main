@@ -6,12 +6,21 @@ import Link from "next/link";
 
 const tabs = [
   {
+    label: "Trying to Conceive",
+    image: "/images/maavie-woman-oil.png",
+    headline: "Your skin is already responding to the journey — even before it begins.",
+    description:
+      "Hormonal shifts, cycle tracking, stress, supplements — your body is working hard. Skin sensitivity, breakouts, and pigmentation can all flare during this season. Maavie supports you with formulas that are safe, gentle, and hormone-aware from day one.",
+    cta: "Join Waitlist",
+    href: "/shop/trying-to-conceive",
+  },
+  {
     label: "Pregnancy & Postpartum",
     image: "/images/pregnency and post partaum.png",
     headline: "Your body is doing something extraordinary. And your skin feels every part of it.",
     description:
       "Pigmentation, dryness, sensitivity, sudden changes you never expected — all while the world tells you to \"just enjoy the glow.\" We believe mothers deserve more than that. They deserve care, understanding, and products made for this season of life.",
-    cta: "Shop Pregnancy & Postpartum",
+    cta: "Join Waitlist",
     href: "/shop/pregnancy",
   },
   {
@@ -20,7 +29,7 @@ const tabs = [
     headline: "One day your skincare works. The next, your skin feels completely different.",
     description:
       "Unexpected dryness. Fine lines. Hormonal breakouts returning years later. Perimenopause changes more than we talk about — and your skincare should change with you.",
-    cta: "Shop Perimenopause Edit",
+    cta: "Join Waitlist",
     href: "/shop/perimenopause",
   },
   {
@@ -29,7 +38,7 @@ const tabs = [
     headline: "Your skin is changing because your body is changing.",
     description:
       "Thinner skin. Less bounce. More dryness. More sensitivity. This isn't something to \"fix.\" It's a new season that deserves softer, smarter support.",
-    cta: "Shop Menopause Edit",
+    cta: "Join Waitlist",
     href: "/shop/menopause",
   },
 ];

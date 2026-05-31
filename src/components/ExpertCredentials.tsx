@@ -1,87 +1,83 @@
-import Image from "next/image";
 import Link from "next/link";
+
+const pillars = [
+  {
+    symbol: "◎",
+    title: "Dermatologist Co-created",
+    desc: "Formulated alongside Indian dermatologists who understand melanin-rich skin and hormonal change.",
+  },
+  {
+    symbol: "✦",
+    title: "Clinically Tested Actives",
+    desc: "Every ingredient is backed by peer-reviewed clinical research — no trend-driven filler.",
+  },
+  {
+    symbol: "◇",
+    title: "Hormone-Safe Formulas",
+    desc: "Safe across pregnancy, postpartum, perimenopause and beyond. Reviewed at every stage.",
+  },
+  {
+    symbol: "⊕",
+    title: "Made for Indian Skin",
+    desc: "Developed specifically for melanin-rich skin and the hormonal realities of Indian women.",
+  },
+];
 
 export default function ExpertCredentials() {
   return (
-    <section className="bg-[#F8F3EE]" style={{ padding: "43px 0" }}>
-      <div className="flex flex-wrap max-w-[1500px] mx-auto items-start">
+    <section className="bg-[#590515]">
 
-        {/* Left — expert headshot */}
-        <div className="w-full lg:w-[25%] hidden lg:flex justify-end">
-          <div
-            className="relative"
-            style={{ width: "100%", maxWidth: "344px", paddingBottom: "331px", marginTop: "-43px" }}
-          >
-            <Image
-              src="/images/maavie-turmeric-powder.png"
-              alt="Expert formulation"
-              fill
-              className="object-cover object-center"
-              sizes="25vw"
-            />
-          </div>
-        </div>
-
-        {/* Center — text */}
-        <div className="w-full lg:w-[37%] text-center" style={{ padding: "75px 20px 110px" }}>
-          <div className="mx-auto" style={{ maxWidth: "480px" }}>
-            <h2
-              className="text-[#231F20] font-light mb-6"
-              style={{ fontSize: "clamp(1.8rem, 2.667vw, 2.5rem)", lineHeight: "1" }}
-            >
-              Co-created with Experts.
-            </h2>
-            <p className="text-[#231F20] text-lg font-light mb-8">
-              Only what your body needs. Nothing more.
-            </p>
-            <p className="text-[#4F4242] text-base leading-relaxed mb-6">
-              Created alongside Indian dermatologists and women&rsquo;s health experts who understand
-              hormonal skin changes and melanin-rich Indian skin.
-            </p>
-            <p className="text-[#4F4242] text-base leading-relaxed mb-10">
-              Every formula is carefully reviewed for both safety and efficacy — with ingredients
-              chosen to support skin through real biological change.
-            </p>
-            <Link
-              href="/science"
-              className="inline-block bg-[#590515] text-white px-9 py-4 text-[11px] font-semibold tracking-[0.18em] uppercase hover:bg-[#450110] transition-colors duration-200"
-            >
-              Expert Education
-            </Link>
-          </div>
-        </div>
-
-        {/* Right — group/lab photo (two stacked) */}
-        <div className="w-full lg:w-[38%] hidden lg:block relative">
-          {/* Top image */}
-          <div
-            className="relative w-full"
-            style={{ paddingBottom: "356px", maxWidth: "486px", marginTop: "-43px" }}
-          >
-            <Image
-              src="/images/maavie-ingredients-flat.png"
-              alt="Maavie expert team"
-              fill
-              className="object-cover object-center"
-              sizes="38vw"
-            />
-          </div>
-          {/* Bottom image */}
-          <div
-            className="relative w-full ml-auto"
-            style={{ paddingBottom: "357px", maxWidth: "482px", margin: "-259px 0 -43px auto" }}
-          >
-            <Image
-              src="/images/maavie-ingredients-pine.png"
-              alt="Maavie laboratory"
-              fill
-              className="object-cover object-center"
-              sizes="38vw"
-            />
-          </div>
-        </div>
-
+      {/* Header */}
+      <div className="max-w-4xl mx-auto px-6 sm:px-10 pt-20 pb-14 text-center">
+        <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#F1E1DD]/60 mb-4">
+          Expert-Led
+        </p>
+        <h2
+          className="text-white font-light leading-tight mb-5"
+          style={{ fontSize: "clamp(1.9rem, 3.5vw, 3rem)" }}
+        >
+          Co-created with<br />
+          <em className="italic text-[#F1E1DD]">Indian Experts.</em>
+        </h2>
+        <p className="text-white/55 text-base font-light max-w-lg mx-auto">
+          Only what your body needs. Nothing more.
+        </p>
       </div>
+
+      {/* Pillars */}
+      <div className="max-w-6xl mx-auto px-6 sm:px-10 pb-16">
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
+          style={{ gap: "1px", backgroundColor: "rgba(255,255,255,0.12)" }}
+        >
+          {pillars.map((p) => (
+            <div key={p.title} className="bg-[#590515] px-8 py-10 group">
+              <span
+                className="block mb-5 text-[22px] text-[#F1E1DD]/50 transition-colors duration-300 group-hover:text-[#F1E1DD]"
+              >
+                {p.symbol}
+              </span>
+              <p className="text-white text-sm font-semibold tracking-wide leading-snug mb-3">
+                {p.title}
+              </p>
+              <p className="text-white/50 text-sm leading-relaxed">
+                {p.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div className="text-center pb-20">
+        <Link
+          href="/waitlist"
+          className="inline-block border border-white/35 text-white px-9 py-4 text-[11px] font-semibold tracking-[0.18em] uppercase hover:bg-white hover:text-[#590515] transition-colors duration-200"
+        >
+          Join the Waitlist
+        </Link>
+      </div>
+
     </section>
   );
 }
