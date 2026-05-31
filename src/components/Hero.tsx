@@ -5,35 +5,42 @@ export default function Hero() {
   return (
     <section
       className="relative w-full overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, #7A4F4A 0%, #A07068 35%, #C4908A 65%, #D4A89E 100%)",
-        minHeight: "88vh",
-      }}
+      style={{ minHeight: "88vh" }}
     >
-      {/* Full-bleed product image — right half, bottom-anchored */}
-      <div className="absolute inset-y-0 right-0 w-full lg:w-[55%] pointer-events-none">
-        <Image
-          src="/images/maavie-product-serum.png"
-          alt="Maavie products"
-          fill
-          priority
-          className="object-contain object-bottom lg:object-right-bottom"
-          sizes="(max-width: 1024px) 100vw, 55vw"
-        />
-      </div>
+      {/* Full-bleed background image */}
+      <Image
+        src="/images/maavie-hero-banner.png"
+        alt="Maavie — Bodies evolve. Your skincare should, too."
+        fill
+        priority
+        className="object-cover object-center"
+        sizes="100vw"
+      />
 
-      {/* Overlay gradient on mobile so text stays readable */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-transparent lg:hidden" />
+      {/* Subtle dark overlay across the whole image for depth */}
+      <div className="absolute inset-0 bg-black/25" />
 
-      {/* Text content — positioned left-center */}
+      {/* Left-side stronger vignette for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent" />
+
+      {/* Text content — vertically centered, left-aligned */}
       <div
         className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex items-center"
         style={{ minHeight: "88vh" }}
       >
-        <div className="w-full lg:w-[45%]">
+        {/* Frosted glass panel — blur effect behind text */}
+        <div
+          className="w-full max-w-[500px] rounded-sm px-10 py-12"
+          style={{
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
+            background: "rgba(89, 5, 21, 0.35)",
+            border: "1px solid rgba(255,255,255,0.1)",
+          }}
+        >
           <h1
             className="text-white leading-tight mb-5"
-            style={{ fontSize: "clamp(2.4rem, 4.5vw, 3.8rem)", fontWeight: 300 }}
+            style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 300 }}
           >
             Bodies evolve.<br />
             Your <em className="italic">skincare</em> should, too.

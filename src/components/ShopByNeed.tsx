@@ -16,7 +16,7 @@ const tabs = [
   },
   {
     label: "Pregnancy & Postpartum",
-    image: "/images/maavie-woman-back.png",
+    image: "/images/pregnency and post partaum.png",
     headline: "Your body is doing something extraordinary. And your skin feels every part of it.",
     description:
       "Pigmentation, dryness, sensitivity, sudden changes you never expected — all while the world tells you to \"just enjoy the glow.\" We believe mothers deserve more than that. They deserve care, understanding, and products made for this season of life.",
@@ -25,7 +25,7 @@ const tabs = [
   },
   {
     label: "Perimenopause",
-    image: "/images/maavie-woman-oil.png",
+    image: "/images/preemanopaues.png",
     headline: "One day your skincare works. The next, your skin feels completely different.",
     description:
       "Unexpected dryness. Fine lines. Hormonal breakouts returning years later. Perimenopause changes more than we talk about — and your skincare should change with you.",
@@ -34,7 +34,7 @@ const tabs = [
   },
   {
     label: "Menopause",
-    image: "/images/maavie-serum-dropper.png",
+    image: "/images/manopause.png",
     headline: "Your skin is changing because your body is changing.",
     description:
       "Thinner skin. Less bounce. More dryness. More sensitivity. This isn't something to \"fix.\" It's a new season that deserves softer, smarter support.",
