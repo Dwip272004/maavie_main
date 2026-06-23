@@ -193,308 +193,295 @@ export default function SkinAnalysisPage() {
       <main>
 
         {/* ── 1. HERO ── */}
-        <section className="bg-white overflow-hidden">
-          <div className="flex flex-col lg:flex-row min-h-[88vh]">
+        <section className="bg-white">
+          <div className="flex flex-col lg:flex-row">
 
             {/* Left — text */}
-            <div className="w-full lg:w-1/2 flex items-center px-6 sm:px-12 lg:px-16 xl:px-20 py-16 sm:py-20">
-              <div className="max-w-[540px]">
-                <p className="text-[11px] font-semibold tracking-[0.32em] uppercase text-[#590515] mb-6">
+            <div className="w-full lg:w-[48%] flex items-center px-8 sm:px-14 lg:px-16 xl:px-20 py-16 sm:py-20 lg:py-24">
+              <div className="max-w-[480px]">
+                <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-[#9D6E6B] mb-8">
                   Maavie AI Skin Analysis
                 </p>
                 <h1
-                  className="text-[#231F20] font-light leading-[1.04] mb-6"
-                  style={{ fontSize: "clamp(2rem, 3.8vw, 3.5rem)" }}
+                  className="font-bold text-[#231F20] leading-[1.05] uppercase mb-5"
+                  style={{ fontSize: "clamp(1.6rem, 2.6vw, 2.4rem)", letterSpacing: "-0.01em" }}
                 >
-                  Developed with<br />
-                  Dermatologists.<br />
-                  <em className="italic text-[#9D6E6B]">Powered by Intelligent<br />Formulation.</em>
+                  Developed with<br />Dermatologists.<br />Powered by<br />Artificial Intelligence.
                 </h1>
-                <p className="text-[#4F4242] text-base sm:text-lg font-light leading-relaxed mb-10">
-                  A personalised skin analysis tool that builds a complete hormonal skincare
-                  routine — made specifically for Indian women and every stage of womanhood.
+                <p className="text-[#4F4242] text-sm sm:text-base leading-relaxed mb-10">
+                  Skin analysis tool that creates a customised hormonal skincare routine for you.
                 </p>
                 <button
                   onClick={startQuiz}
-                  className="inline-block bg-[#590515] text-white px-12 py-4 text-[11px] font-semibold tracking-[0.18em] uppercase hover:bg-[#450110] transition-colors duration-200 mb-5"
+                  className="bg-[#590515] text-white px-10 py-3.5 text-[11px] font-bold tracking-[0.14em] uppercase hover:bg-[#450110] transition-colors duration-200"
                 >
-                  Start Your Analysis
+                  Start Now
                 </button>
-                <p className="text-[#9D6E6B] text-[10px] tracking-[0.2em] uppercase">
-                  5 questions &nbsp;·&nbsp; Under 2 minutes &nbsp;·&nbsp; No sign-up needed
-                </p>
               </div>
             </div>
 
-            {/* Right — hero image with analysis overlay */}
-            <div className="relative w-full lg:w-1/2 min-h-[420px] lg:min-h-0 overflow-hidden bg-[#EAD1CB]">
+            {/* Right — image */}
+            <div className="relative w-full lg:w-[52%] min-h-[420px] lg:min-h-[540px] overflow-hidden bg-[#EAD1CB]">
               <Image
                 src="/images/maavie-woman-oil.png"
-                alt="Maavie skin analysis"
+                alt="Maavie AI skin analysis"
                 fill
                 priority
                 className="object-cover object-center"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 1024px) 100vw, 52vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-[#590515]/20 to-transparent" />
-
-              {/* Animated scan rings */}
+              {/* Scan overlay */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="relative w-56 h-56 sm:w-72 sm:h-72">
-                  <div className="absolute inset-0 rounded-full border border-white/25"
-                    style={{ animation: "pulse 3s ease-in-out infinite" }} />
-                  <div className="absolute inset-6 rounded-full border border-white/15"
-                    style={{ animation: "pulse 3s ease-in-out infinite 0.5s" }} />
-                  <div className="absolute inset-12 rounded-full border border-white/10"
-                    style={{ animation: "pulse 3s ease-in-out infinite 1s" }} />
-                  {/* Analysis dots */}
+                <div className="relative w-52 h-52 sm:w-64 sm:h-64">
+                  <div className="absolute inset-0 rounded-full border border-white/30"
+                    style={{ animation: "scanpulse 3s ease-in-out infinite" }} />
+                  <div className="absolute inset-5 rounded-full border border-white/20"
+                    style={{ animation: "scanpulse 3s ease-in-out infinite 0.6s" }} />
+                  <div className="absolute inset-10 rounded-full border border-white/10"
+                    style={{ animation: "scanpulse 3s ease-in-out infinite 1.2s" }} />
                   {[
-                    { top: "22%", left: "30%"  },
-                    { top: "38%", left: "72%"  },
-                    { top: "60%", left: "22%"  },
-                    { top: "55%", left: "65%"  },
-                    { top: "75%", left: "45%"  },
+                    { top: "18%", left: "28%" }, { top: "35%", left: "70%" },
+                    { top: "62%", left: "18%" }, { top: "58%", left: "68%" },
                   ].map((pos, i) => (
-                    <div key={i} className="absolute w-2.5 h-2.5 rounded-full bg-[#F1E1DD]"
-                      style={{ ...pos, animation: `ping 2s ease-in-out infinite ${i * 0.4}s` }} />
+                    <span key={i} className="absolute w-2 h-2 rounded-full bg-white/70"
+                      style={{ ...pos, animation: `scandot 2.2s ease-in-out infinite ${i * 0.45}s` }} />
                   ))}
                 </div>
               </div>
               <style>{`
-                @keyframes ping { 0%,100%{opacity:0.3;transform:scale(1)} 50%{opacity:1;transform:scale(1.3)} }
-                @keyframes pulse { 0%,100%{opacity:0.25} 50%{opacity:0.5} }
+                @keyframes scanpulse{0%,100%{opacity:.2}50%{opacity:.55}}
+                @keyframes scandot{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:.9;transform:scale(1.4)}}
               `}</style>
-
-              {/* Badge */}
-              <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-3">
-                <p className="text-[9px] font-bold tracking-[0.25em] uppercase text-[#9D6E6B]">Maavie</p>
-                <p className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#231F20]">AI Skin Consult</p>
+              {/* Badge — top right like Vichy */}
+              <div className="absolute top-5 right-5 bg-white/90 backdrop-blur-sm px-4 py-2.5 text-right">
+                <p className="text-[8px] font-bold tracking-[0.25em] uppercase text-[#9D6E6B] leading-none mb-0.5">Maavie</p>
+                <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#231F20] leading-none">
+                  <span className="text-[#590515]">AI</span> Skin Consult
+                </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── 2. HOW IT WORKS ── */}
-        <section className="bg-[#F8F3EE] py-20 sm:py-24 px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-14">
-              <p className="text-[11px] font-semibold tracking-[0.32em] uppercase text-[#590515] mb-4">
-                Simple &amp; Fast
-              </p>
-              <h2
-                className="text-[#231F20] font-light"
-                style={{ fontSize: "clamp(1.9rem, 3vw, 2.8rem)" }}
-              >
-                3 Easy Steps
-              </h2>
-            </div>
+        {/* ── 2. 3 EASY STEPS ── */}
+        <section className="bg-white py-20 sm:py-24 px-6 border-t border-[#F0EDED]">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-center font-bold uppercase text-[#231F20] tracking-[0.06em] mb-14 sm:mb-16"
+              style={{ fontSize: "clamp(1.4rem, 2.2vw, 1.9rem)" }}>
+              3 Easy Steps
+            </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-8">
               {[
                 {
-                  num: "01",
-                  icon: (
-                    <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" className="text-[#590515]">
-                      <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-                    </svg>
-                  ),
+                  step: "STEP 1",
                   title: "Answer Your Questions",
-                  desc: "Tell us your life stage, skin type, top concerns and a few lifestyle details. 5 questions — under 2 minutes.",
+                  desc: "Tell us your life stage, skin type and top concerns. 5 questions, under 2 minutes.",
+                  screen: (
+                    <div className="w-full h-full flex flex-col px-4 py-5 gap-2">
+                      <div className="h-2 w-3/4 bg-[#590515]/15 rounded" />
+                      {["Trying to Conceive","Pregnancy","Perimenopause","Menopause"].map((l, i) => (
+                        <div key={i} className={`flex items-center gap-2 border rounded px-3 py-2 ${i === 0 ? "border-[#590515] bg-[#F8F3EE]" : "border-[#E8DEDA]"}`}>
+                          <span className={`w-3 h-3 rounded-full border flex-shrink-0 ${i === 0 ? "border-[#590515] bg-[#590515]" : "border-[#9D6E6B]"}`} />
+                          <span className="text-[7px] font-medium text-[#231F20]">{l}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ),
                 },
                 {
-                  num: "02",
-                  icon: (
-                    <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" className="text-[#590515]">
-                      <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
-                    </svg>
+                  step: "STEP 2",
+                  title: "Complete Your Analysis",
+                  desc: "Our engine maps your hormonal profile to a clinical database of ingredient combinations.",
+                  screen: (
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-3 px-4 py-5">
+                      <div className="relative w-16 h-16">
+                        <div className="absolute inset-0 rounded-full border-2 border-[#E8DEDA]" />
+                        <div className="absolute inset-0 rounded-full border-t-2 border-[#590515]"
+                          style={{ animation: "spin 1.4s linear infinite" }} />
+                        <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
+                      </div>
+                      <div className="text-center space-y-1.5 w-full">
+                        {["Hormonal profile","Life stage","Key actives"].map((l, i) => (
+                          <div key={i} className="flex items-center gap-2 justify-center">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#590515]" />
+                            <span className="text-[7px] text-[#4F4242]">{l}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   ),
-                  title: "Build Your Profile",
-                  desc: "Our analysis maps your hormonal stage, skin state and concerns to a clinical database of ingredient and routine combinations.",
                 },
                 {
-                  num: "03",
-                  icon: (
-                    <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" className="text-[#590515]">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
+                  step: "STEP 3",
+                  title: "Get Your Results",
+                  desc: "Receive a personalised morning and evening routine with actives chosen for your skin right now.",
+                  screen: (
+                    <div className="w-full h-full flex flex-col px-3 py-4 gap-2">
+                      <div className="h-1.5 w-2/3 bg-[#590515]/20 rounded mb-1" />
+                      {[["☀","Morning","Cleanser · Serum · SPF"],["◑","Evening","Serum · Repair Cream"]].map(([sym, lbl, items], i) => (
+                        <div key={i} className="border border-[#E8DEDA] rounded px-2.5 py-2">
+                          <div className="flex items-center gap-1.5 mb-1">
+                            <span className="text-[9px] text-[#590515]">{sym}</span>
+                            <span className="text-[7px] font-bold uppercase tracking-wide text-[#231F20]">{lbl}</span>
+                          </div>
+                          <span className="text-[6.5px] text-[#9D6E6B]">{items}</span>
+                        </div>
+                      ))}
+                      <div className="mt-auto bg-[#590515] rounded text-center py-1.5">
+                        <span className="text-[7px] font-bold text-white tracking-wide uppercase">Join Waitlist</span>
+                      </div>
+                    </div>
                   ),
-                  title: "Get Your Routine",
-                  desc: "Receive a complete personalised morning and evening routine — with the exact active ingredients chosen for your hormonal skin right now.",
                 },
-              ].map((s) => (
-                <div key={s.num} className="bg-white p-8 sm:p-10 border border-[#E8DEDA]">
-                  <div className="mb-5">{s.icon}</div>
-                  <p className="text-[11px] font-bold tracking-[0.25em] uppercase text-[#9D6E6B] mb-3">{s.title}</p>
-                  <p className="text-sm text-[#4F4242] leading-relaxed">{s.desc}</p>
+              ].map(({ step, title, desc, screen }) => (
+                <div key={step} className="flex flex-col items-center text-center">
+                  {/* Phone frame */}
+                  <div className="w-[160px] h-[260px] sm:w-[148px] sm:h-[240px] rounded-[22px] border-2 border-[#231F20] bg-white overflow-hidden shadow-sm mb-6 relative">
+                    {/* Notch */}
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-3 bg-[#231F20] rounded-b-xl z-10" />
+                    <div className="w-full h-full pt-3">
+                      {screen}
+                    </div>
+                  </div>
+                  <p className="text-[9px] font-bold tracking-[0.22em] uppercase text-[#9D6E6B] mb-2">{step}</p>
+                  <p className="text-sm font-bold text-[#231F20] mb-2">{title}</p>
+                  <p className="text-xs text-[#4F4242] leading-relaxed max-w-[200px]">{desc}</p>
                 </div>
               ))}
-            </div>
-
-            <div className="text-center mt-12">
-              <button
-                onClick={startQuiz}
-                className="inline-block bg-[#590515] text-white px-12 py-4 text-[11px] font-semibold tracking-[0.18em] uppercase hover:bg-[#450110] transition-colors duration-200"
-              >
-                Start Your Analysis
-              </button>
             </div>
           </div>
         </section>
 
         {/* ── 3. COMPLETE SKIN PROFILE ── */}
-        <section className="bg-white overflow-hidden">
-          <div className="flex flex-col lg:flex-row min-h-[580px]">
+        <section className="bg-white border-t border-[#F0EDED]">
+          <div className="flex flex-col lg:flex-row">
 
-            {/* Left — image */}
-            <div className="relative w-full lg:w-[45%] min-h-[380px] lg:min-h-0 overflow-hidden bg-[#F1E1DD]">
+            {/* Left — image with scan overlay + badge */}
+            <div className="relative w-full lg:w-[48%] min-h-[400px] lg:min-h-[520px] overflow-hidden bg-[#F1E1DD]">
               <Image
-                src="/images/maavie-serum-dropper.png"
-                alt="Complete skin profile"
+                src="/images/maavie-woman-oil.png"
+                alt="A complete hormonal skin profile"
                 fill
-                className="object-cover object-center"
-                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 48vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#590515]/10" />
-              {/* Badge */}
-              <div className="absolute top-6 left-6 bg-[#590515] text-white px-5 py-3">
-                <p className="text-[9px] font-bold tracking-[0.28em] uppercase text-white/70 mb-0.5">Maavie</p>
-                <p className="text-[11px] font-bold tracking-[0.18em] uppercase">AI Skin Profile</p>
+              {/* Scan circles */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="relative w-44 h-44 sm:w-52 sm:h-52">
+                  <div className="absolute inset-0 rounded-full border border-white/35" />
+                  <div className="absolute inset-6 rounded-full border border-white/20" />
+                  {[
+                    { top: "15%", left: "20%" }, { top: "30%", left: "78%" },
+                    { top: "70%", left: "15%" }, { top: "65%", left: "72%" },
+                  ].map((pos, i) => (
+                    <span key={i} className="absolute w-2 h-2 rounded-full bg-white/60"
+                      style={{ ...pos, animation: `scandot 2.5s ease-in-out infinite ${i * 0.5}s` }} />
+                  ))}
+                </div>
+              </div>
+              {/* Badge — top left like Vichy */}
+              <div className="absolute top-5 left-5 bg-white/90 backdrop-blur-sm px-4 py-2.5">
+                <p className="text-[8px] font-bold tracking-[0.25em] uppercase text-[#9D6E6B] leading-none mb-0.5">Maavie</p>
+                <p className="text-[10px] font-bold tracking-[0.15em] uppercase text-[#231F20] leading-none">
+                  <span className="text-[#590515]">AI</span> Skin Consult
+                </p>
               </div>
             </div>
 
-            {/* Right — content */}
-            <div className="w-full lg:w-[55%] flex items-center px-6 sm:px-12 lg:px-16 py-14 sm:py-20">
-              <div className="max-w-[500px]">
-                <p className="text-[11px] font-semibold tracking-[0.32em] uppercase text-[#590515] mb-5">
-                  What We Analyse
-                </p>
-                <h2
-                  className="text-[#231F20] font-light leading-tight mb-6"
-                  style={{ fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)" }}
-                >
-                  A Complete<br />
-                  <em className="italic text-[#9D6E6B]">Hormonal AI Skin Profile</em>
+            {/* Right — text */}
+            <div className="w-full lg:w-[52%] flex items-center px-8 sm:px-14 lg:px-16 xl:px-20 py-14 sm:py-20">
+              <div className="max-w-[480px]">
+                <h2 className="font-bold uppercase text-[#231F20] leading-tight mb-5"
+                  style={{ fontSize: "clamp(1.4rem, 2.2vw, 1.9rem)", letterSpacing: "-0.01em" }}>
+                  A Complete Skin Profile
                 </h2>
-                <p className="text-[#4F4242] text-base leading-relaxed mb-7">
-                  Our analysis evaluates your skin across 6 dimensions — all mapped to
-                  your hormonal life stage and Indian skin needs:
+                <p className="text-sm sm:text-base text-[#4F4242] leading-relaxed mb-7">
+                  Detect and analyse your skin strengths and areas of focus across 6 different
+                  hormonal skin concerns, such as:
                 </p>
-                <ul className="space-y-3 mb-10">
+                <ul className="space-y-2.5 mb-10">
                   {[
-                    "Hormonal life stage & skin patterns",
-                    "Skin type & current barrier state",
-                    "Primary & secondary skin concerns",
-                    "Lifestyle &amp; environmental factors",
-                    "Ingredient compatibility & safety",
-                    "Personalised morning + evening routine",
+                    "Hormonal Pigmentation & Melasma",
+                    "Dryness & Barrier Damage",
+                    "Hormonal Breakouts",
+                    "Sensitivity & Redness",
+                    "Fine Lines & Firmness",
+                    "Hair Thinning & Scalp Health",
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 shrink-0 rounded-full bg-[#590515]" />
-                      <span className="text-sm text-[#231F20]" dangerouslySetInnerHTML={{ __html: item }} />
+                    <li key={item} className="flex items-center gap-3 text-sm text-[#231F20]">
+                      <span className="text-[#590515]">·</span> {item}
                     </li>
                   ))}
                 </ul>
                 <button
                   onClick={startQuiz}
-                  className="inline-block bg-[#590515] text-white px-10 py-4 text-[11px] font-semibold tracking-[0.18em] uppercase hover:bg-[#450110] transition-colors duration-200"
+                  className="bg-[#590515] text-white px-10 py-3.5 text-[11px] font-bold tracking-[0.14em] uppercase hover:bg-[#450110] transition-colors duration-200"
                 >
-                  Start Your Analysis
+                  Start Now
                 </button>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── 4. BEHIND THE SCIENCE ── */}
-        <section className="bg-[#F8F3EE] overflow-hidden">
-          <div className="flex flex-col lg:flex-row-reverse min-h-[520px]">
-
-            {/* Right (visually) — image */}
-            <div className="relative w-full lg:w-[42%] min-h-[340px] lg:min-h-0 overflow-hidden bg-[#EAD1CB]">
-              <Image
-                src="/images/maavie-ingredients-botanical.png"
-                alt="Maavie science"
-                fill
-                className="object-cover object-center"
-                sizes="(max-width: 1024px) 100vw, 42vw"
-              />
-              <div className="absolute inset-0 bg-[#231F20]/20" />
-            </div>
+        {/* ── 4. BEHIND THE TECH ── */}
+        <section className="bg-white border-t border-[#F0EDED]">
+          <div className="flex flex-col lg:flex-row">
 
             {/* Left — text */}
-            <div className="w-full lg:w-[58%] flex items-center px-6 sm:px-12 lg:px-16 xl:px-20 py-14 sm:py-20">
-              <div className="max-w-[520px]">
-                <p className="text-[11px] font-semibold tracking-[0.32em] uppercase text-[#590515] mb-5">
-                  The Science
-                </p>
-                <h2
-                  className="text-[#231F20] font-light leading-tight mb-7"
-                  style={{ fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)" }}
-                >
-                  Behind the<br />
-                  <em className="italic text-[#9D6E6B]">Technology</em>
+            <div className="w-full lg:w-[55%] flex items-center px-8 sm:px-14 lg:px-16 xl:px-20 py-16 sm:py-20 lg:py-24">
+              <div className="max-w-[480px]">
+                <h2 className="font-bold uppercase text-[#231F20] leading-tight mb-6"
+                  style={{ fontSize: "clamp(1.4rem, 2.2vw, 1.9rem)", letterSpacing: "-0.01em" }}>
+                  Behind the Tech
                 </h2>
-                <p className="text-[#4F4242] text-base leading-relaxed mb-5">
-                  Our analysis engine was co-created with Indian dermatologists and women&rsquo;s health
-                  specialists who have spent years studying how hormonal change affects melanin-rich skin.
+                <p className="text-sm sm:text-base text-[#4F4242] leading-relaxed">
+                  Co-created with Indian dermatologists and women&rsquo;s health specialists,
+                  Maavie&rsquo;s AI analysis is built on a hormonal skin database covering every stage
+                  of womanhood. Our tool matches your profile against clinically researched ingredient
+                  combinations to give you an advanced skin analysis in under 2 minutes — with
+                  recommendations that are safe across pregnancy, postpartum, perimenopause
+                  and menopause.
                 </p>
-                <p className="text-[#4F4242] text-base leading-relaxed mb-5">
-                  Unlike generic skin quizzes, Maavie&rsquo;s analysis is built on two foundational
-                  truths: that Indian skin has specific needs, and that those needs shift significantly
-                  depending on where you are in your hormonal journey.
-                </p>
-                <p className="text-[#4F4242] text-base leading-relaxed mb-10">
-                  Every routine recommendation is reviewed against ingredient safety data for
-                  pregnancy, breastfeeding and all hormonal stages — so you never have to choose
-                  between effective and safe.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  {["Dermatologist-reviewed", "Hormone-safe actives", "Indian skin-first"].map((badge) => (
-                    <span key={badge} className="border border-[#E8DEDA] text-[#590515] text-[9px] font-bold tracking-[0.2em] uppercase px-4 py-2">
-                      {badge}
-                    </span>
-                  ))}
-                </div>
               </div>
+            </div>
+
+            {/* Right — portrait image */}
+            <div className="relative w-full lg:w-[45%] min-h-[380px] lg:min-h-[480px] bg-[#F8F3EE] overflow-hidden">
+              <Image
+                src="/images/maavie-ingredients-botanical.png"
+                alt="Behind the technology"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
             </div>
           </div>
         </section>
 
-        {/* ── 5. CTA SECTION ── */}
-        <section className="bg-[#590515] py-20 sm:py-24 px-6 text-center">
-          <p className="text-[11px] font-semibold tracking-[0.32em] uppercase text-[#F1E1DD]/60 mb-5">
-            Ready to begin?
-          </p>
-          <h2
-            className="text-white font-light leading-tight mb-8"
-            style={{ fontSize: "clamp(1.9rem, 3.5vw, 3rem)" }}
-          >
-            Get Your Personalised<br />
-            <em className="italic text-[#F1E1DD]">Maavie Routine Recommendation</em>
+        {/* ── 5. CTA ── */}
+        <section className="bg-[#590515] py-16 sm:py-20 px-6 text-center">
+          <h2 className="font-bold uppercase text-white leading-tight mb-8"
+            style={{ fontSize: "clamp(1.1rem, 2vw, 1.6rem)", letterSpacing: "0.02em" }}>
+            Get Your Customised Routine Recommendation
           </h2>
           <button
             onClick={startQuiz}
-            className="inline-block bg-white text-[#590515] px-12 py-4 text-[11px] font-semibold tracking-[0.18em] uppercase hover:bg-[#F1E1DD] transition-colors duration-200"
+            className="bg-white text-[#590515] px-10 py-3.5 text-[11px] font-bold tracking-[0.14em] uppercase hover:bg-[#F1E1DD] transition-colors duration-200"
           >
-            Start Your Analysis
+            Start Now
           </button>
         </section>
 
         {/* ── 6. FAQs ── */}
-        <section className="bg-white py-20 sm:py-24 px-6">
-          <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-12">
-              <p className="text-[11px] font-semibold tracking-[0.32em] uppercase text-[#590515] mb-4">
-                Questions
-              </p>
-              <h2
-                className="text-[#231F20] font-light"
-                style={{ fontSize: "clamp(1.8rem, 2.5vw, 2.4rem)" }}
-              >
-                FAQs
-              </h2>
-            </div>
-            <div>
+        <section className="bg-white py-16 sm:py-20 px-6">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-center font-light text-[#231F20] mb-10"
+              style={{ fontSize: "clamp(1.6rem, 2.2vw, 2rem)" }}>
+              FAQs
+            </h2>
+            <div className="border-t border-[#E8DEDA]">
               {FAQS.map((faq) => (
                 <FaqItem key={faq.q} q={faq.q} a={faq.a} />
               ))}
