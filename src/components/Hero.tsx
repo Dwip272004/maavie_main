@@ -30,7 +30,7 @@ export default function Hero() {
       >
         {/* Frosted glass panel — blur effect behind text */}
         <div
-          className="w-full max-w-[500px] rounded-sm px-10 py-12"
+          className="w-full max-w-[500px] rounded-sm px-6 sm:px-10 py-8 sm:py-12"
           style={{
             backdropFilter: "blur(12px)",
             WebkitBackdropFilter: "blur(12px)",

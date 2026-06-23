@@ -151,7 +151,7 @@ export default function IngredientsMarquee() {
     <section className="bg-[#F8F3EE] overflow-hidden">
 
       {/* ── Header ── */}
-      <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 pt-20 pb-12 text-center">
+      <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 pt-14 sm:pt-20 pb-8 sm:pb-12 text-center">
         <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#590515] mb-4">
           What&rsquo;s Inside
         </p>

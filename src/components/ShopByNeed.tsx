@@ -50,11 +50,11 @@ export default function ShopByNeed() {
   return (
     <section className="bg-white">
       {/* Heading row + tabs */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 pt-12 pb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <h2 className="text-2xl sm:text-3xl font-light text-[#231F20]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 pt-12 pb-6 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <h2 className="text-2xl sm:text-3xl font-light text-[#231F20] shrink-0">
           What does <em className="italic">your</em> body need?
         </h2>
-        <nav className="flex items-center gap-6 overflow-x-auto scrollbar-hide pb-1">
+        <nav className="flex items-center gap-5 sm:gap-7 overflow-x-auto scrollbar-hide pb-1">
           {tabs.map((tab, i) => (
             <button
               key={tab.label}

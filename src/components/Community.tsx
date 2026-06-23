@@ -7,8 +7,8 @@ export default function Community() {
 
         {/* Left panel — dark maroon */}
         <div
-          className="w-full sm:w-1/2 flex items-center justify-center"
-          style={{ backgroundColor: "#590515", padding: "65px 20px 72px" }}
+          className="w-full sm:w-1/2 flex items-center justify-center py-14 sm:py-16 lg:py-[65px] px-5 sm:px-8"
+          style={{ backgroundColor: "#590515" }}
         >
           <div className="text-center max-w-[438px]">
             {/* WhatsApp icon */}
@@ -42,8 +42,8 @@ export default function Community() {
 
         {/* Right panel — dusty rose / Instagram */}
         <div
-          className="w-full sm:w-1/2 flex items-center justify-center"
-          style={{ backgroundColor: "#D9C0BA", padding: "65px 20px 72px" }}
+          className="w-full sm:w-1/2 flex items-center justify-center py-14 sm:py-16 lg:py-[65px] px-5 sm:px-8"
+          style={{ backgroundColor: "#D9C0BA" }}
         >
           <div className="text-center max-w-[438px]">
             {/* Instagram icon */}

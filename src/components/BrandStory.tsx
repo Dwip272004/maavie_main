@@ -7,7 +7,7 @@ export default function BrandStory() {
       <div className="flex flex-col lg:flex-row min-h-[600px]">
 
         {/* Left — content */}
-        <div className="w-full lg:w-[52%] flex items-center px-10 sm:px-14 lg:px-20 xl:px-28 py-20 lg:py-24">
+        <div className="w-full lg:w-[52%] flex items-center px-6 sm:px-10 lg:px-16 xl:px-24 py-14 sm:py-20 lg:py-24">
           <div className="max-w-[520px]">
             <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-[#590515] mb-6">
               Our Story

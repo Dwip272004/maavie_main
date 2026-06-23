@@ -51,7 +51,7 @@ export default function ExpertCredentials() {
           style={{ gap: "1px", backgroundColor: "rgba(255,255,255,0.12)" }}
         >
           {pillars.map((p) => (
-            <div key={p.title} className="bg-[#590515] px-8 py-10 group">
+            <div key={p.title} className="bg-[#590515] px-6 sm:px-8 py-8 sm:py-10 group">
               <span
                 className="block mb-5 text-[22px] text-[#F1E1DD]/50 transition-colors duration-300 group-hover:text-[#F1E1DD]"
               >

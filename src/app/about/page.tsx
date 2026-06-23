@@ -188,13 +188,13 @@ export default function AboutPage() {
             >
               <a
                 href="#founders"
-                className="inline-block bg-white text-[#231F20] px-9 py-4 text-[11px] font-semibold tracking-[0.18em] uppercase hover:bg-[#F1E1DD] transition-colors duration-200"
+                className="inline-block bg-white text-[#231F20] px-7 sm:px-9 py-4 text-[11px] font-semibold tracking-[0.18em] uppercase hover:bg-[#F1E1DD] transition-colors duration-200"
               >
                 Meet the Founders
               </a>
               <Link
                 href="/products"
-                className="inline-block border border-white/40 text-white px-9 py-4 text-[11px] font-semibold tracking-[0.18em] uppercase hover:bg-white/10 transition-colors duration-200"
+                className="inline-block border border-white/40 text-white px-7 sm:px-9 py-4 text-[11px] font-semibold tracking-[0.18em] uppercase hover:bg-white/10 transition-colors duration-200"
               >
                 Shop Now
               </Link>
@@ -339,7 +339,7 @@ export default function AboutPage() {
               </div>
 
               {/* Content panel */}
-              <div className="bg-white px-10 sm:px-14 py-14 flex flex-col justify-center">
+              <div className="bg-white px-6 sm:px-10 lg:px-14 py-10 sm:py-14 flex flex-col justify-center">
                 <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-[#9D6E6B] mb-4">
                   {founder.tagline}
                 </p>
@@ -413,7 +413,7 @@ export default function AboutPage() {
               {values.map((v, i) => (
                 <div
                   key={v.num}
-                  className="group p-10 cursor-default transition-all duration-700 hover:shadow-lg"
+                  className="group p-6 sm:p-10 cursor-default transition-all duration-700 hover:shadow-lg"
                   style={{
                     backgroundColor: v.color,
                     opacity: valuesReveal.inView ? 1 : 0,
@@ -464,7 +464,7 @@ export default function AboutPage() {
                     }}
                   >
                     {/* Mobile: left always; Desktop: alternating */}
-                    <div className={`w-full sm:w-1/2 ${i % 2 === 0 ? "sm:pr-12 sm:text-right" : "sm:pl-12 sm:ml-auto"}`}>
+                    <div className={`w-full sm:w-1/2 ${i % 2 === 0 ? "pl-10 sm:pl-0 sm:pr-12 sm:text-right" : "pl-10 sm:pl-12 sm:ml-auto"}`}>
                       <div className={`inline-block bg-white p-6 shadow-sm relative ${i % 2 === 0 ? "" : ""}`}>
                         <p className="text-[#590515] text-[11px] font-bold tracking-[0.2em] uppercase mb-2">
                           {m.year}
