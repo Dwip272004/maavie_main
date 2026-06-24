@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const navItems = [
   {
@@ -69,9 +70,14 @@ export default function Header() {
 
           {/* Logo */}
           <Link href="/" className="shrink-0" onClick={closeMobile}>
-            <span className="text-[22px] font-bold tracking-[0.18em] text-[#231F20] uppercase">
-              maavie
-            </span>
+            <Image
+              src="/images/logo.png"
+              alt="Maavie"
+              width={120}
+              height={48}
+              className="h-16 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}

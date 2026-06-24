@@ -337,7 +337,7 @@ export default function SkinAnalysisPage() {
               ].map(({ step, title, desc, screen }) => (
                 <div key={step} className="flex flex-col items-center text-center">
                   {/* Phone frame */}
-                  <div className="w-[160px] h-[260px] sm:w-[148px] sm:h-[240px] rounded-[22px] border-2 border-[#231F20] bg-white overflow-hidden shadow-sm mb-6 relative">
+                  <div className="w-[200px] h-[420px] sm:w-[185px] sm:h-[390px] rounded-[22px] border-2 border-[#231F20] bg-white overflow-hidden shadow-sm mb-6 relative">
                     {/* Notch */}
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-3 bg-[#231F20] rounded-b-xl z-10" />
                     <div className="w-full h-full pt-3">

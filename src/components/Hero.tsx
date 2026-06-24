@@ -42,11 +42,11 @@ export default function Hero() {
             className="text-white leading-tight mb-5"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 300 }}
           >
-            Bodies evolve.<br />
-            Your <em className="italic">skincare</em> should, too.
+            Bodies change,<br />
+            Care should too.
           </h1>
           <p className="text-white/80 text-lg font-light mb-10">
-            Made for every stage of womanhood.
+            Science-backed hormonal care for every stage of womanhood.
           </p>
           <Link
             href="/waitlist"
